@@ -1,0 +1,3 @@
+User-agent: *
+   Allow: /
+   Sitemap: https://angel-teni.github.io/Personal-Website/sitemap.xml
