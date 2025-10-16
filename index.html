@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Angel Ogungbemi - Computer Science student at UT Austin specializing in full-stack development and cybersecurity. Creative problem solver combining technical expertise with design thinking.">
+    <meta name="keywords" content="Angel Ogungbemi, Computer Science, Full Stack Developer, Cybersecurity, UT Austin, Web Developer, Java, Python, JavaScript, Creative Developer">
+    <meta name="author" content="Angel Ogungbemi">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Angel Ogungbemi - Full-Stack Developer & Cybersecurity Enthusiast">
+    <meta property="og:description" content="CS student at UT Austin with experience in full-stack development, cybersecurity, and creative problem-solving.">
+    <meta property="og:type" content="website">
+    
+    <title>Angel Ogungbemi | Full-Stack Developer & Cybersecurity Enthusiast</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #a855f7;
+            --primary-glow: rgba(168, 85, 247, 0.5);
+            --secondary: #dc2626;
+            --secondary-glow: rgba(220, 38, 38, 0.5);
+            --accent: #f97316;
+            --text: #e5e7eb;
+            --text-dim: #9ca3af;
+            --bg: #0f0f0f;
+            --bg-elevated: #1a1a1a;
+            --bg-card: #262626;
+            --border: #374151;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
+        header {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-dim);
+        }
+        
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+        }
+        
+        .personal-statement {
+            background: var(--bg-elevated);
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .personal-statement p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .personal-statement p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .about-text {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+        }
+        
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-category {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .skill-category:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+            transform: translateY(-4px);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-dim);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .experience-item, .project-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .experience-item:hover, .project-card:hover {
+            border-left-color: var(--secondary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transform: translateX(4px);
+        }
+        
+        .experience-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .experience-company {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .experience-date {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        
+        .experience-item ul, .project-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .experience-item li, .project-card li {
+            margin: 0.5rem 0;
+            color: var(--text-dim);
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.35rem 0.85rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            border-color: var(--primary);
+            transform: translateX(8px);
+        }
+        
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--bg-elevated);
+            color: var(--text-dim);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .experience-header, .project-header {
+                flex-direction: column;
+            }
+            
+            .personal-statement {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AO</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Angel Ogungbemi</h1>
+            <p class="tagline">Full-Stack Developer & Cybersecurity Enthusiast</p>
+            <p class="subtitle">Building secure, innovative solutions at the intersection of code and creativity</p>
+            <div class="hero-links">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://www.linkedin.com/in/angel-ogungbemi" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://gitlab.com/angel-ogungbemi" target="_blank" class="btn btn-secondary">GitLab</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            
+            <div class="personal-statement">
+                <p>I'm a creative technologist who believes the best solutions emerge at the intersection of imagination and technical precision. As a Computer Science student at UT Austin with a passion for both full-stack development and cybersecurity, I approach every challenge as an opportunity to craft something meaningful, secure, and user-centered.</p>
+                
+                <p>My journey into tech has been shaped by a unique blend of interests. With a minor in Statistics and Data Science and a certificate in Digital Arts and Media, I don't just write code—I design experiences. Whether I'm building a web application to help foster youth find resources or developing secure operating system components, I bring a designer's eye for detail and a developer's commitment to functionality.</p>
+                
+                <p>In the realm of full-stack development, I thrive on transforming ideas into tangible, interactive applications. From crafting intuitive front-end interfaces to architecting robust back-end systems, I love the entire journey of bringing a product to life. But what truly drives me is ensuring that these systems are not just functional, but fundamentally secure. Cybersecurity isn't an afterthought in my work—it's woven into every line of code, every architectural decision, every user interaction.</p>
+                
+                <p>As someone who mentors 100+ students in Java programming and serves as Public Relations Officer for the Association of Black Computer Scientists, I'm committed to fostering inclusive tech communities where creativity and security-minded thinking go hand in hand. I believe the future of technology belongs to those who can think both creatively and critically about the systems we build.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Education</h3>
+                    <p><strong>The University of Texas at Austin</strong><br>
+                    B.S. Computer Science | Expected May 2027<br>
+                    Minor: Statistics and Data Science<br>
+                    Certificate: Digital Arts and Media</p>
+                    <br>
+                    <p><strong>Relevant Coursework:</strong> Operating Systems, Software Engineering, Data Structures, Algorithms and Complexities, Computer Architecture, Discrete Math, Linear Algebra</p>
+                </div>
+                <div class="about-text">
+                    <h3>Focus Areas</h3>
+                    <p><strong>Full-Stack Development</strong><br>
+                    Building end-to-end web applications with modern frameworks, RESTful APIs, and cloud deployment solutions.</p>
+                    <br>
+                    <p><strong>Cybersecurity</strong><br>
+                    Implementing secure coding practices, understanding system vulnerabilities, and developing security-first architecture.</p>
+                    <br>
+                    <p><strong>Creative Problem-Solving</strong><br>
+                    Merging design thinking with technical execution to create intuitive, impactful user experiences.</p>
+                </div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>C/C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                        <li>Assembly</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Full-Stack Tech</h3>
+                    <ul>
+                        <li>AWS</li>
+                        <li>REST APIs</li>
+                        <li>Bootstrap</li>
+                        <li>Git/GitHub</li>
+                        <li>Postman</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Security & Systems</h3>
+                    <ul>
+                        <li>Operating Systems</li>
+                        <li>System Architecture</li>
+                        <li>Memory Management</li>
+                        <li>Secure Coding</li>
+                        <li>Debugging & Testing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Creative Tools</h3>
+                    <ul>
+                        <li>Adobe Illustrator</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Procreate</li>
+                        <li>UI/UX Design</li>
+                        <li>Design Thinking (IBM Certified)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background: var(--bg-elevated);">
+        <div class="container">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Undergraduate Course Assistant</div>
+                        <div class="experience-company">University of Texas at Austin</div>
+                    </div>
+                    <div class="experience-date">August 2025 - Present</div>
+                </div>
+                <ul>
+                    <li>Mentor and guide 100+ first-year students in mastering Java programming, reinforcing core concepts such as variables, control structures, arrays, and object-oriented design</li>
+                    <li>Facilitate weekly office hours to coach students in debugging, testing, and optimizing Java code for efficiency and accuracy</li>
+                    <li>Collaborate with instructors to grade 200+ programming assignments, ensuring consistent assessment of Java fundamentals</li>
+                    <li>Streamline grading and feedback workflows by identifying recurring coding challenges and contributing to improvements</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Technical Assistant</div>
+                        <div class="experience-company">OG Property Ventures LLC</div>
+                    </div>
+                    <div class="experience-date">May 2023 - May 2025</div>
+                </div>
+                <ul>
+                    <li>Provided IT support by troubleshooting hardware/software issues, reducing downtime by 15% across the office</li>
+                    <li>Assisted with installation and updates of productivity software, improving operational efficiency for 20+ employees</li>
+                    <li>Supported database maintenance and updated digital asset records, ensuring accurate system logs and seamless cross-departmental access</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Public Relations Officer</div>
+                        <div class="experience-company">Association of Black Computer Scientists (ABCS)</div>
+                    </div>
+                    <div class="experience-date">April 2025 - Present</div>
+                </div>
+                <ul>
+                    <li>Manage communications and public relations for the organization, promoting initiatives and events</li>
+                    <li>Strengthen the association's visibility and engagement within the computing community</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="experience-title">FosterFledging Web Application</div>
+                        <div class="experience-company">Software Engineering Project</div>
+                    </div>
+                    <div class="experience-date">Fall 2025</div>
+                </div>
+                <ul>
+                    <li>Building a full-stack web application to connect young adults aging out of foster care with housing, counseling, and organizational resources</li>
+                    <li>Designing a RESTful API with Postman documentation and implementing a responsive UI with 9+ model instance pages</li>
+                    <li>Integrating multiple data sources including Google Maps API, HUD housing datasets, and ProPublica Nonprofit API</li>
+                    <li>Deploying on AWS with focus on scalability and secure data handling</li>
+                </ul>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">REST API</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="experience-title">Pintos Operating System</div>
+                        <div class="experience-company">Operating Systems Project</div>
+                    </div>
+                    <div class="experience-date">Spring 2025</div>
+                </div>
+                <ul>
+                    <li>Collaborated in a team to expand a teaching OS into a more robust system with enhanced security features</li>
+                    <li>Built a virtual memory subsystem with demand paging and memory-mapped file support</li>
+                    <li>Converted the file system to a multi-threaded, multi-level indexed design for concurrent access</li>
+                    <li>Implemented priority scheduling, system calls, and secure memory management using C</li>
+                </ul>
+                <div class="project-tags">
+                    <span class="tag">C</span>
+                    <span class="tag">Operating Systems</span>
+                    <span class="tag">Virtual Memory</span>
+                    <span class="tag">Security</span>
+                    <span class="tag">File Systems</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="experience-title">WICS Most Wanted</div>
+                        <div class="experience-company">WICS Hackathon - Best Design Winner 🏆</div>
+                    </div>
+                    <div class="experience-date">February 2025</div>
+                </div>
+                <ul>
+                    <li>Collaborated on a team to build a UT Austin campus adventure game with interactive features</li>
+                    <li>Led design and user experience efforts, creating engaging gameplay around exploring landmarks, solving trivia, and tracking progress</li>
+                    <li>Implemented ChatBevo, an AI-powered chatbot guide for interactive navigation and user assistance</li>
+                    <li>Won Best Design award for creative UI/UX implementation</li>
+                </ul>
+                <div class="project-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">Google Maps API</span>
+                    <span class="tag">UI/UX Design</span>
+                    <span class="tag">AI Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--bg-elevated);">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-dim);">
+                    I'm always open to discussing new opportunities, collaborations in full-stack development or cybersecurity, or just connecting with fellow developers and security enthusiasts!
+                </p>
+                <div class="contact-item">
+                    📧 Email: <a href="mailto:angel_ogungbemi@yahoo.com">angel_ogungbemi@yahoo.com</a>
+                </div>
+                <div class="contact-item">
+                    📱 Phone: <a href="tel:646-703-9648">646-703-9648</a>
+                </div>
+                <div class="contact-item">
+                    💼 LinkedIn: <a href="https://www.linkedin.com/in/angel-ogungbemi" target="_blank">linkedin.com/in/angel-ogungbemi</a>
+                </div>
+                <div class="contact-item">
+                    💻 GitHub: <a href="https://github.com/Angel-Teni" target="_blank">github.com/Angel-Teni</a>
+                </div>
+                <div class="contact-item">
+                    💻 GitLab: <a href="https://gitlab.com/angel-ogungbemi" target="_blank">gitlab.com/angel-ogungbemi</a>
+                </div>
+                <div class="contact-item">
+                    📍 Location: Houston, TX
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Angel Ogungbemi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
